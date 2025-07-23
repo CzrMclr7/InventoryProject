@@ -1,0 +1,132 @@
+﻿@using InventoryProject.DataAccess.Models
+@using InventoryProject.App.ViewModels;
+@{
+    ViewData["Title"] = "Product Adjustment Management";
+}
+<h2>Product Adjustment List</h2>
+
+<div class="row">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-body">
+                <div class="d-flex justify-content-start mb-3">
+                    <div class="btn-group me-2">
+                        <button class="btn btn-success btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Add
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#modalIN">IN</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#modalOUT">OUT</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-light btn-sm dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                            Export Product Adjustment PDF
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a asp-controller="Report" asp-action="ProductAdjustmentReport" asp-route-actionType="All" target="_blank" class="dropdown-item">
+                                    All
+                                </a>
+                            </li>
+                            <li>
+                                <a asp-controller="Report" asp-action="ProductAdjustmentReport" asp-route-actionType="IN" target="_blank" class="dropdown-item">
+                                    IN
+                                </a>
+                            </li>
+                            <li>
+                                <a asp-controller="Report" asp-action="ProductAdjustmentReport" asp-route-actionType="OUT" target="_blank" class="dropdown-item">
+                                    OUT
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <table id="tbl-adjustments" class="table table-bordered table-sm">
+                    <thead class="table-light">
+                        <tr>
+                            <th>Date</th>
+                            <th>Name</th>
+                            <th>Adjustment Type</th>
+                            <th>Quantity</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalIN" tabindex="-1" aria-labelledby="modalINLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form asp-action="SaveIn" method="post" id="frm-adjustment-in" asp-antiforgery="true">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalINLabel">Adjustment IN</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <table id="tbl_adjustment_in" class="table table-bordered table-sm">
+                            <thead class="table-light">
+                                <tr>
+                                    <th>Product</th>
+                                    <th>Qty</th>
+                                    <th>Adjustment Type</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                        <div class="mb-2">
+                            <button type="button" id="btn_add_in" class="btn btn-secondary">Add In</button>
+                            <button type="submit" class="btn btn-primary">Save</button>                         
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalOUT" tabindex="-1" aria-labelledby="modalOUTLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form asp-action="SaveOut" method="post" id="frm-adjustment-out" asp-antiforgery="true">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalOUTLabel">Adjustment OUT</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <table id="tbl_adjustment_out" class="table table-bordered table-sm">
+                            <thead class="table-light">
+                                <tr>
+                                    <th>Product</th>
+                                    <th>Qty</th>
+                                    <th>Adjustment Type</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                        <div class="mb-2">
+                            <button type="button" id="btn_add_out" class="btn btn-secondary">Add Out</button>
+                            <button type="submit" class="btn btn-primary">Save</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script src="~/js/adjustment/productAdjustmentScript.js" asp-append-version="true"></script>
+
+}

@@ -1,0 +1,6 @@
+C:\Users\Admin\source\repos\InventoryProject\InventoryProject.Database\bin\Debug\InventoryProject.Database.dacpac
+C:\Users\Admin\source\repos\InventoryProject\InventoryProject.Database\bin\Debug\InventoryProject.Database.dll
+C:\Users\Admin\source\repos\InventoryProject\InventoryProject.Database\bin\Debug\InventoryProject.Database.pdb
+C:\Users\Admin\source\repos\InventoryProject\InventoryProject.Database\obj\Debug\InventoryProject.Database.sqlproj.AssemblyReference.cache
+C:\Users\Admin\source\repos\InventoryProject\InventoryProject.Database\obj\Debug\InventoryProject.Database.dll
+C:\Users\Admin\source\repos\InventoryProject\InventoryProject.Database\obj\Debug\InventoryProject.Database.pdb

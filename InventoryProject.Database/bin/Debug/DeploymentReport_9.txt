@@ -1,0 +1,28 @@
+﻿** Highlights
+     Tables that will be recreated with data migrated
+       None
+     Clustered indexes that will be dropped
+       None
+     Clustered indexes that will be created
+       None
+     Possible data issues
+       The type for column TotalPrice in table [dbo].[Sales] is currently  INT NOT NULL but is being changed to  DECIMAL (18,
+         2) NOT NULL. Data loss could occur and deployment may fail if the column contains data that is incompatible with type 
+         DECIMAL (18, 2) NOT NULL.
+       The type for column Price in table [dbo].[SalesDetail] is currently  INT NOT NULL but is being changed to  DECIMAL (18,
+         2) NOT NULL. Data loss could occur and deployment may fail if the column contains data that is incompatible with type 
+         DECIMAL (18, 2) NOT NULL.
+
+** User actions
+     Alter
+       [dbo].[Sales] (Table)
+       [dbo].[SalesDetail] (Table)
+
+** Supporting actions
+     Refresh
+       [dbo].[spSales_Inq] (Procedure)
+       [dbo].[spSalesDetail_GetBySalesId] (Procedure)
+
+The type for column TotalPrice in table [dbo].[Sales] is currently  INT NOT NULL but is being changed to  DECIMAL (18, 2) NOT NULL. Data loss could occur and deployment may fail if the column contains data that is incompatible with type  DECIMAL (18, 2) NOT NULL.
+The type for column Price in table [dbo].[SalesDetail] is currently  INT NOT NULL but is being changed to  DECIMAL (18, 2) NOT NULL. Data loss could occur and deployment may fail if the column contains data that is incompatible with type  DECIMAL (18, 2) NOT NULL.
+

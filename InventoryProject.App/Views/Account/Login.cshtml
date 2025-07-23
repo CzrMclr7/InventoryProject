@@ -1,0 +1,98 @@
+﻿@using InventoryProject.DataAccess.Models.Authentication
+@using InventoryProject.App.ViewModels
+@model LoginViewModel
+@{
+    ViewData["Title"] = "Log In";
+    // <head>
+    //     <link href="https:cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    // </head>
+}
+<body class="bg-light">
+    <div class="container d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+        <div class="card p-4 shadow-sm" style="width: 100%; max-width: 450px;">
+            <ul class="nav nav-tabs mb-3" id="accountTabs" role="tablist">
+                <li class="nav-item">
+                    <button class="nav-link active" id="login-tab" data-bs-toggle="tab" data-bs-target="#loginTab">Login</button>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-link" id="register-tab" data-bs-toggle="tab" data-bs-target="#registerTab">Register</button>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-link" id="update-tab" data-bs-toggle="tab" data-bs-target="#updateTab">Update Password</button>
+                </li>
+            </ul>
+
+            <div class="tab-content">
+                <!-- Login Form -->
+                <div class="tab-pane fade show active" id="loginTab">
+                    <form id="frm-login" asp-action="Login" method="POST" asp-route-returnurl="@Model.ReturnUrl">
+                        <input type="hidden" asp-for="ReturnUrl" />
+                        <div class="mb-3">
+                            <label class="form-label">Username</label>
+                            <input type="text" name="Username" class="form-control" required />                            
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Password</label>
+                            <input type="password" name="Password" class="form-control" required />
+                        </div>
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary">Login</button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Register Form -->
+                <div class="tab-pane fade" id="registerTab">
+                    <form id="frm-register" asp-action="Register" method="POST" enctype="multipart/form-data">
+                        <div class="mb-3">
+                            <label class="form-label">Username</label>
+                            <input type="text" name="Username" class="form-control" required />
+                        </div>
+                        <div class="mb-3">
+                            <label asp-for="Password" class="form-label">Password</label>
+                            <input name="Password" asp-for="Password" class="form-control" />
+                            <span asp-validation-for="@Model.Password" class="text-danger"></span>
+                        </div>
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-success">Register</button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Update Password Form -->
+                <div class="tab-pane fade" id="updateTab">
+                    <form id="frm-update" asp-action="Update" method="POST">
+                        <div class="mb-3">
+                            <label class="form-label">Username</label>
+                            <input type="text" Name="Username" class="form-control" required />
+                        </div>
+                        <div class="mb-3">
+                            <label asp-for="Password" class="form-label">Old Password</label>
+                            <input asp-for="Password" Name="Password" class="form-control" />
+                            <span asp-validation-for="@Model.Password" class="text-danger"></span>
+                            <br>
+                        </div>
+                        <div class="mb-3">
+                            <label asp-for="NewPassword" class="form-label">New Password</label>
+                            <input asp-for="NewPassword" Name="NewPassword" class="form-control" />
+                            <span asp-validation-for="@Model.NewPassword" class="text-danger"></span>
+                        </div>
+                        <div class="mb-3">
+                            <label asp-for="ConfirmPassword" class="form-label">Confirm Password</label>
+                            <input asp-for="ConfirmPassword" Name="ConfirmPassword" class="form-control" />
+                            <span asp-validation-for="@Model.ConfirmPassword" class="text-danger"></span>
+                        </div>
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-warning">Update Password</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script src="~/js/users/userScript.js" asp-append-version="true"></script>
+}

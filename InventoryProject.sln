@@ -1,0 +1,39 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36221.1 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InventoryProject.App", "InventoryProject.App\InventoryProject.App.csproj", "{60C68EE9-94D9-4819-B8E9-EB0A5F78CAE3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InventoryProject.DataAccess", "InventoryProject.DataAccess\InventoryProject.DataAccess.csproj", "{A891CAE3-2D2F-4623-B487-CC867D16002B}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "InventoryProject.Database", "InventoryProject.Database\InventoryProject.Database.sqlproj", "{0270992B-DC3B-4461-A0A8-7DA7E0072A45}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{60C68EE9-94D9-4819-B8E9-EB0A5F78CAE3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{60C68EE9-94D9-4819-B8E9-EB0A5F78CAE3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{60C68EE9-94D9-4819-B8E9-EB0A5F78CAE3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{60C68EE9-94D9-4819-B8E9-EB0A5F78CAE3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A891CAE3-2D2F-4623-B487-CC867D16002B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A891CAE3-2D2F-4623-B487-CC867D16002B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A891CAE3-2D2F-4623-B487-CC867D16002B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A891CAE3-2D2F-4623-B487-CC867D16002B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0270992B-DC3B-4461-A0A8-7DA7E0072A45}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0270992B-DC3B-4461-A0A8-7DA7E0072A45}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0270992B-DC3B-4461-A0A8-7DA7E0072A45}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{0270992B-DC3B-4461-A0A8-7DA7E0072A45}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0270992B-DC3B-4461-A0A8-7DA7E0072A45}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0270992B-DC3B-4461-A0A8-7DA7E0072A45}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {312ECD36-2CC1-4EF1-9624-4FC7ABD307A8}
+	EndGlobalSection
+EndGlobal

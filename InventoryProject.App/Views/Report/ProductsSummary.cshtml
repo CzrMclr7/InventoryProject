@@ -1,0 +1,38 @@
+﻿@using InventoryProject.App.ViewModels.Report
+@model ReportViewModel
+
+@{
+	ViewData["Title"] = Model.ReportFilter.ReportName + " Report";
+}
+<a asp-action="ProductReport" target="_blank" class="btn btn-light btn-sm">
+    Export Product List PDF
+</a>
+<div class="card-body table-responsive border-top p-2">
+    <div class="text-center">
+        <h4><strong>@Model.ReportFilter.ReportName</strong></h4>
+    </div>
+    <table class="table table-bordered table-hover table-sm nowrap" id="tbl_product_summary_report" style="width:100%;">
+        <thead class="bg-info text-light">
+            <tr>
+                <th class="text-center"></th>
+                <th class="text-center">Name</th>
+                <th class="text-center">Quantity</th>
+                <th class="text-center">Price</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+        <tfoot class="bg-info text-light">
+            <tr>
+                <th></th>
+                <th class="text-end" id="totalFooter" colspan="2">Total</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </tfoot>
+    </table>
+</div>
+
+@section Scripts {
+	@* <partial name="_ReportFilterModal" /> *@
+	<script src="~/js/Report/ProductsSummaryReportScript.js" asp-append-version="true"></script>
+}

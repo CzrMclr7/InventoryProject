@@ -1,0 +1,109 @@
+﻿@using InventoryProject.DataAccess.Models  
+@using InventoryProject.App.ViewModels;  
+@model SalesViewModel
+
+@{
+    ViewData["Title"] = "Sales Management";
+}  
+<h2>Sales List</h2>  
+
+<div class="row">  
+    <div class="col-md-8">  
+        <div class="card">  
+            <div class="card-body">  
+                <div class="mb-2">  
+                    <button class="btn btn-success btn-sm" id="btnEdit">Edit</button>  
+                    <button class="btn btn-danger btn-sm" id="btnDelete">Delete</button>  
+                    <button class="btn btn-light btn-sm" id="btnRefresh">Refresh</button>  
+                    <a asp-controller="Report" asp-action="DetailedSalesReport" target="_blank" class="btn btn-light btn-sm">
+                        Export Detailed Sales PDF
+                    </a>
+                </div>  
+                <table id="tbl_sales" class="table table-bordered table-sm">
+                    <thead class="table-light">  
+                        <tr>  
+                            <th>Name</th>  
+                            <th>Qty</th>  
+                            <th>TotalPrice</th>  
+                        </tr>  
+                    </thead>  
+                </table>  
+            </div>  
+        </div>  
+    </div>  
+    <div class="col-md-4">  
+        <div class="card">  
+            <form asp-action="Save" method="post" id="frm-sales" asp-antiforgery="true">  
+                <div class="card-header">  
+                    <h4 class="card-title" id="frm-sales-title">Sales Form</h4>  
+                </div>  
+                <div class="card-body">  
+                    <input type="hidden" asp-for="Sales.Id" />  
+                    <div class="mb-2">  
+                        <label asp-for="Sales.Name" class="form-label"></label>
+                        <input asp-for="Sales.Name" class="form-control" required />
+                        <span asp-validation-for="Sales.Name" class="text-danger"></span>
+                    </div>  
+                    <div class="mb-2">  
+                        <label asp-for="Sales.Quantity" class="form-label"></label>
+                        <input asp-for="Sales.Quantity" class="form-control" id="sales_total_qty" required />
+                        <span asp-validation-for="Sales.Quantity" class="text-danger"></span>
+                    </div>  
+                    <div class="mb-2">  
+                        <label asp-for="Sales.TotalPrice" class="form-label"></label>
+                        <input type="hidden" name="Sales.TotalPrice" id="sales_totalprice" />
+                        <input disabled asp-for="Sales.TotalPrice" class="form-control" id="sales_total_price" required />
+                        @* <span asp-validation-for="Sales.TotalPrice" class="text-danger"></span> *@
+                    </div>  
+
+                    <table id="tbl_sales_details" class="table table-bordered table-sm">  
+                        <thead class="table-light">  
+                            <tr>  
+                                <th>Name</th>  
+                                <th>Qty</th>  
+                                <th>Price</th>  
+                                <th>Actions</th>  
+                            </tr>  
+                        </thead>  
+                        <tbody>
+                        @*     @if (Model.SalesDetails != null && Model.SalesDetails.Any())
+                            {
+                                for(int i = 0; i < Model.SalesDetails.Count; i++)
+                                {
+                                     <tr class="details_row">
+                                        <td class="align-middle" style="min-width: 150px;">
+                                            <input type="hidden" asp-for="SalesDetails[@i].Id" id="Details_Id_@i" />
+                                            <input type="hidden" asp-for="SalesDetails[@i].SalesId" id="Details_SalesId_@i" />
+                                            <select asp-for="SalesDetails[i].ProductId" class="form-control form-control-sm" id="SalesDetails_ProductId_[@i]" data-value="@Model.SalesDetails[i].ProductId">
+                                                <option value="">Select Product...</option>
+                                            </select>
+                                        </td>
+                                        <td class="align-middle">
+                                            <input type="number" asp-for="SalesDetails[@i].Price" id="Details_Price_@i" class="form-control" />
+                                        </td>
+                                        <td class="align-middle">
+                                            <input type="number" asp-for="SalesDetails[@i].Quantity" id="Details_Quantity_@i" class="form-control" />
+                                        </td>
+                                        <td class="align-middle text-center">
+                                            <button type="button" class="btn btn-danger btn-sm btn_remove_detail">Remove</button>
+                                        </td>
+                                    </tr>
+                                }
+                            }
+                        </tbody> *@
+                    </table>  
+                    <div class="mb-2">  
+                        <button type="button" id="btn_add_detail" class="btn btn-secondary">Add Detail</button>
+                        <button type="submit" class="btn btn-primary">Save</button>  
+                        <button type="button" class="btn btn-danger" id="btnReset"> Reset</button>  
+                    </div>  
+                </div>  
+            </form>  
+        </div>  
+    </div>  
+</div>  
+
+@section Scripts {  
+    <partial name="_ValidationScriptsPartial" />  
+    <script src="~/js/sales/salesScript.js" asp-append-version="true"></script>  
+}

@@ -1,0 +1,22 @@
+﻿** Highlights
+     Tables that will be recreated with data migrated
+       None
+     Clustered indexes that will be dropped
+       None
+     Clustered indexes that will be created
+       None
+     Possible data issues
+       None
+
+** User actions
+     Create
+       [dbo].[Products] (Table)
+       [dbo].[Sales] (Table)
+       [dbo].[SalesDetail] (Table)
+       Default Constraint: unnamed constraint on [dbo].[Products] (Default Constraint)
+       Default Constraint: unnamed constraint on [dbo].[Sales] (Default Constraint)
+       Default Constraint: unnamed constraint on [dbo].[SalesDetail] (Default Constraint)
+       [dbo].[FK_SalesDetail_Sales] (Foreign Key)
+       [dbo].[FK_SalesDetail_Products] (Foreign Key)
+
+** Supporting actions

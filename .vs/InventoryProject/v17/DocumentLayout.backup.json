@@ -1,0 +1,323 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Admin\\source\\repos\\InventoryProject\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{0270992B-DC3B-4461-A0A8-7DA7E0072A45}|InventoryProject.Database\\InventoryProject.Database.sqlproj|C:\\Users\\Admin\\source\\repos\\InventoryProject\\InventoryProject.Database\\Stored Procedures\\spRpt_DetailedSales.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}",
+      "RelativeMoniker": "D:0:0:{0270992B-DC3B-4461-A0A8-7DA7E0072A45}|InventoryProject.Database\\InventoryProject.Database.sqlproj|solutionrelative:InventoryProject.Database\\Stored Procedures\\spRpt_DetailedSales.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A891CAE3-2D2F-4623-B487-CC867D16002B}|InventoryProject.DataAccess\\InventoryProject.DataAccess.csproj|c:\\users\\admin\\source\\repos\\inventoryproject\\inventoryproject.dataaccess\\persistence\\repositories\\salesrepo\\salesrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A891CAE3-2D2F-4623-B487-CC867D16002B}|InventoryProject.DataAccess\\InventoryProject.DataAccess.csproj|solutionrelative:inventoryproject.dataaccess\\persistence\\repositories\\salesrepo\\salesrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{60C68EE9-94D9-4819-B8E9-EB0A5F78CAE3}|InventoryProject.App\\InventoryProject.App.csproj|c:\\users\\admin\\source\\repos\\inventoryproject\\inventoryproject.app\\controllers\\reportcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{60C68EE9-94D9-4819-B8E9-EB0A5F78CAE3}|InventoryProject.App\\InventoryProject.App.csproj|solutionrelative:inventoryproject.app\\controllers\\reportcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A891CAE3-2D2F-4623-B487-CC867D16002B}|InventoryProject.DataAccess\\InventoryProject.DataAccess.csproj|c:\\users\\admin\\source\\repos\\inventoryproject\\inventoryproject.dataaccess\\persistence\\repositories\\productadjustmentrepo\\productadjustmentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A891CAE3-2D2F-4623-B487-CC867D16002B}|InventoryProject.DataAccess\\InventoryProject.DataAccess.csproj|solutionrelative:inventoryproject.dataaccess\\persistence\\repositories\\productadjustmentrepo\\productadjustmentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{60C68EE9-94D9-4819-B8E9-EB0A5F78CAE3}|InventoryProject.App\\InventoryProject.App.csproj|c:\\users\\admin\\source\\repos\\inventoryproject\\inventoryproject.app\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{60C68EE9-94D9-4819-B8E9-EB0A5F78CAE3}|InventoryProject.App\\InventoryProject.App.csproj|solutionrelative:inventoryproject.app\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{60C68EE9-94D9-4819-B8E9-EB0A5F78CAE3}|InventoryProject.App\\InventoryProject.App.csproj|c:\\users\\admin\\source\\repos\\inventoryproject\\inventoryproject.app\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{60C68EE9-94D9-4819-B8E9-EB0A5F78CAE3}|InventoryProject.App\\InventoryProject.App.csproj|solutionrelative:inventoryproject.app\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{60C68EE9-94D9-4819-B8E9-EB0A5F78CAE3}|InventoryProject.App\\InventoryProject.App.csproj|c:\\users\\admin\\source\\repos\\inventoryproject\\inventoryproject.app\\wwwroot\\js\\adjustment\\productadjustmentscript.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{60C68EE9-94D9-4819-B8E9-EB0A5F78CAE3}|InventoryProject.App\\InventoryProject.App.csproj|solutionrelative:inventoryproject.app\\wwwroot\\js\\adjustment\\productadjustmentscript.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{60C68EE9-94D9-4819-B8E9-EB0A5F78CAE3}|InventoryProject.App\\InventoryProject.App.csproj|c:\\users\\admin\\source\\repos\\inventoryproject\\inventoryproject.app\\views\\sales\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{60C68EE9-94D9-4819-B8E9-EB0A5F78CAE3}|InventoryProject.App\\InventoryProject.App.csproj|solutionrelative:inventoryproject.app\\views\\sales\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A891CAE3-2D2F-4623-B487-CC867D16002B}|InventoryProject.DataAccess\\InventoryProject.DataAccess.csproj|c:\\users\\admin\\source\\repos\\inventoryproject\\inventoryproject.dataaccess\\models\\report\\detailedsalesreportmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A891CAE3-2D2F-4623-B487-CC867D16002B}|InventoryProject.DataAccess\\InventoryProject.DataAccess.csproj|solutionrelative:inventoryproject.dataaccess\\models\\report\\detailedsalesreportmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{60C68EE9-94D9-4819-B8E9-EB0A5F78CAE3}|InventoryProject.App\\InventoryProject.App.csproj|c:\\users\\admin\\source\\repos\\inventoryproject\\inventoryproject.app\\views\\productadjustment\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{60C68EE9-94D9-4819-B8E9-EB0A5F78CAE3}|InventoryProject.App\\InventoryProject.App.csproj|solutionrelative:inventoryproject.app\\views\\productadjustment\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A891CAE3-2D2F-4623-B487-CC867D16002B}|InventoryProject.DataAccess\\InventoryProject.DataAccess.csproj|c:\\users\\admin\\source\\repos\\inventoryproject\\inventoryproject.dataaccess\\models\\usermodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A891CAE3-2D2F-4623-B487-CC867D16002B}|InventoryProject.DataAccess\\InventoryProject.DataAccess.csproj|solutionrelative:inventoryproject.dataaccess\\models\\usermodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A891CAE3-2D2F-4623-B487-CC867D16002B}|InventoryProject.DataAccess\\InventoryProject.DataAccess.csproj|c:\\users\\admin\\source\\repos\\inventoryproject\\inventoryproject.dataaccess\\models\\productadjustmentmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A891CAE3-2D2F-4623-B487-CC867D16002B}|InventoryProject.DataAccess\\InventoryProject.DataAccess.csproj|solutionrelative:inventoryproject.dataaccess\\models\\productadjustmentmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A891CAE3-2D2F-4623-B487-CC867D16002B}|InventoryProject.DataAccess\\InventoryProject.DataAccess.csproj|c:\\users\\admin\\source\\repos\\inventoryproject\\inventoryproject.dataaccess\\models\\salesdetailmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A891CAE3-2D2F-4623-B487-CC867D16002B}|InventoryProject.DataAccess\\InventoryProject.DataAccess.csproj|solutionrelative:inventoryproject.dataaccess\\models\\salesdetailmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A891CAE3-2D2F-4623-B487-CC867D16002B}|InventoryProject.DataAccess\\InventoryProject.DataAccess.csproj|c:\\users\\admin\\source\\repos\\inventoryproject\\inventoryproject.dataaccess\\models\\useraccessmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A891CAE3-2D2F-4623-B487-CC867D16002B}|InventoryProject.DataAccess\\InventoryProject.DataAccess.csproj|solutionrelative:inventoryproject.dataaccess\\models\\useraccessmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A891CAE3-2D2F-4623-B487-CC867D16002B}|InventoryProject.DataAccess\\InventoryProject.DataAccess.csproj|c:\\users\\admin\\source\\repos\\inventoryproject\\inventoryproject.dataaccess\\persistence\\repositories\\productrepo\\productrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A891CAE3-2D2F-4623-B487-CC867D16002B}|InventoryProject.DataAccess\\InventoryProject.DataAccess.csproj|solutionrelative:inventoryproject.dataaccess\\persistence\\repositories\\productrepo\\productrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A891CAE3-2D2F-4623-B487-CC867D16002B}|InventoryProject.DataAccess\\InventoryProject.DataAccess.csproj|c:\\users\\admin\\source\\repos\\inventoryproject\\inventoryproject.dataaccess\\persistence\\repositories\\productadjustmentrepo\\iproductadjustmentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A891CAE3-2D2F-4623-B487-CC867D16002B}|InventoryProject.DataAccess\\InventoryProject.DataAccess.csproj|solutionrelative:inventoryproject.dataaccess\\persistence\\repositories\\productadjustmentrepo\\iproductadjustmentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0270992B-DC3B-4461-A0A8-7DA7E0072A45}|InventoryProject.Database\\InventoryProject.Database.sqlproj|C:\\Users\\Admin\\source\\repos\\InventoryProject\\InventoryProject.Database\\Stored Procedures\\spRpt_DetailedSales.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|CodeFrame",
+      "RelativeMoniker": "D:0:0:{0270992B-DC3B-4461-A0A8-7DA7E0072A45}|InventoryProject.Database\\InventoryProject.Database.sqlproj|solutionrelative:InventoryProject.Database\\Stored Procedures\\spRpt_DetailedSales.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|CodeFrame"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "spRpt_DetailedSales.sql ",
+              "DocumentMoniker": "C:\\Users\\Admin\\source\\repos\\InventoryProject\\InventoryProject.Database\\Stored Procedures\\spRpt_DetailedSales.sql",
+              "RelativeDocumentMoniker": "InventoryProject.Database\\Stored Procedures\\spRpt_DetailedSales.sql",
+              "ToolTip": "C:\\Users\\Admin\\source\\repos\\InventoryProject\\InventoryProject.Database\\Stored Procedures\\spRpt_DetailedSales.sql\r\n(localdb)\\ProjectModels.InventoryProject.Database_1\r\n(DESKTOP-JVS2LQ1\\Admin)",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2025-07-23T10:16:21.4Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "UserController.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\source\\repos\\InventoryProject\\InventoryProject.App\\Controllers\\UserController.cs",
+              "RelativeDocumentMoniker": "InventoryProject.App\\Controllers\\UserController.cs",
+              "ToolTip": "C:\\Users\\Admin\\source\\repos\\InventoryProject\\InventoryProject.App\\Controllers\\UserController.cs",
+              "RelativeToolTip": "InventoryProject.App\\Controllers\\UserController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-23T10:09:57.755Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ReportController.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\source\\repos\\InventoryProject\\InventoryProject.App\\Controllers\\ReportController.cs",
+              "RelativeDocumentMoniker": "InventoryProject.App\\Controllers\\ReportController.cs",
+              "ToolTip": "C:\\Users\\Admin\\source\\repos\\InventoryProject\\InventoryProject.App\\Controllers\\ReportController.cs",
+              "RelativeToolTip": "InventoryProject.App\\Controllers\\ReportController.cs",
+              "ViewState": "AgIAAF8AAAAAAAAAAAAIwG0AAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-23T10:07:56.886Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "DetailedSalesReportModel.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\source\\repos\\InventoryProject\\InventoryProject.DataAccess\\Models\\Report\\DetailedSalesReportModel.cs",
+              "RelativeDocumentMoniker": "InventoryProject.DataAccess\\Models\\Report\\DetailedSalesReportModel.cs",
+              "ToolTip": "C:\\Users\\Admin\\source\\repos\\InventoryProject\\InventoryProject.DataAccess\\Models\\Report\\DetailedSalesReportModel.cs",
+              "RelativeToolTip": "InventoryProject.DataAccess\\Models\\Report\\DetailedSalesReportModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-23T09:59:24.972Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Admin\\source\\repos\\InventoryProject\\InventoryProject.App\\Views\\Sales\\Index.cshtml",
+              "RelativeDocumentMoniker": "InventoryProject.App\\Views\\Sales\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Admin\\source\\repos\\InventoryProject\\InventoryProject.App\\Views\\Sales\\Index.cshtml",
+              "RelativeToolTip": "InventoryProject.App\\Views\\Sales\\Index.cshtml",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABwAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-23T09:31:41.424Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Admin\\source\\repos\\InventoryProject\\InventoryProject.App\\Views\\ProductAdjustment\\Index.cshtml",
+              "RelativeDocumentMoniker": "InventoryProject.App\\Views\\ProductAdjustment\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Admin\\source\\repos\\InventoryProject\\InventoryProject.App\\Views\\ProductAdjustment\\Index.cshtml",
+              "RelativeToolTip": "InventoryProject.App\\Views\\ProductAdjustment\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-23T09:28:47.937Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "ProductAdjustmentModel.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\source\\repos\\InventoryProject\\InventoryProject.DataAccess\\Models\\ProductAdjustmentModel.cs",
+              "RelativeDocumentMoniker": "InventoryProject.DataAccess\\Models\\ProductAdjustmentModel.cs",
+              "ToolTip": "C:\\Users\\Admin\\source\\repos\\InventoryProject\\InventoryProject.DataAccess\\Models\\ProductAdjustmentModel.cs",
+              "RelativeToolTip": "InventoryProject.DataAccess\\Models\\ProductAdjustmentModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAABWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-23T09:28:28.888Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "UserModel.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\source\\repos\\InventoryProject\\InventoryProject.DataAccess\\Models\\UserModel.cs",
+              "RelativeDocumentMoniker": "InventoryProject.DataAccess\\Models\\UserModel.cs",
+              "ToolTip": "C:\\Users\\Admin\\source\\repos\\InventoryProject\\InventoryProject.DataAccess\\Models\\UserModel.cs",
+              "RelativeToolTip": "InventoryProject.DataAccess\\Models\\UserModel.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAowCcAAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-23T09:27:17.762Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "SalesDetailModel.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\source\\repos\\InventoryProject\\InventoryProject.DataAccess\\Models\\SalesDetailModel.cs",
+              "RelativeDocumentMoniker": "InventoryProject.DataAccess\\Models\\SalesDetailModel.cs",
+              "ToolTip": "C:\\Users\\Admin\\source\\repos\\InventoryProject\\InventoryProject.DataAccess\\Models\\SalesDetailModel.cs",
+              "RelativeToolTip": "InventoryProject.DataAccess\\Models\\SalesDetailModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAABSAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-23T09:25:00.179Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "UserAccessModel.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\source\\repos\\InventoryProject\\InventoryProject.DataAccess\\Models\\UserAccessModel.cs",
+              "RelativeDocumentMoniker": "InventoryProject.DataAccess\\Models\\UserAccessModel.cs",
+              "ToolTip": "C:\\Users\\Admin\\source\\repos\\InventoryProject\\InventoryProject.DataAccess\\Models\\UserAccessModel.cs",
+              "RelativeToolTip": "InventoryProject.DataAccess\\Models\\UserAccessModel.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAwAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-23T07:56:29.725Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "FloatingWindowState": {
+        "Id": "8b1f1bba-6ece-4db4-bb7d-693685b95bfe",
+        "Display": 0,
+        "X": 768,
+        "Y": 153,
+        "Width": 999,
+        "Height": 825,
+        "WindowState": 0
+      },
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "SalesRepository.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\source\\repos\\InventoryProject\\InventoryProject.DataAccess\\Persistence\\Repositories\\SalesRepo\\SalesRepository.cs",
+              "RelativeDocumentMoniker": "InventoryProject.DataAccess\\Persistence\\Repositories\\SalesRepo\\SalesRepository.cs",
+              "ToolTip": "C:\\Users\\Admin\\source\\repos\\InventoryProject\\InventoryProject.DataAccess\\Persistence\\Repositories\\SalesRepo\\SalesRepository.cs",
+              "RelativeToolTip": "InventoryProject.DataAccess\\Persistence\\Repositories\\SalesRepo\\SalesRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAA4AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-23T08:00:18.17Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ProductAdjustmentRepository.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\source\\repos\\InventoryProject\\InventoryProject.DataAccess\\Persistence\\Repositories\\ProductAdjustmentRepo\\ProductAdjustmentRepository.cs",
+              "RelativeDocumentMoniker": "InventoryProject.DataAccess\\Persistence\\Repositories\\ProductAdjustmentRepo\\ProductAdjustmentRepository.cs",
+              "ToolTip": "C:\\Users\\Admin\\source\\repos\\InventoryProject\\InventoryProject.DataAccess\\Persistence\\Repositories\\ProductAdjustmentRepo\\ProductAdjustmentRepository.cs",
+              "RelativeToolTip": "InventoryProject.DataAccess\\Persistence\\Repositories\\ProductAdjustmentRepo\\ProductAdjustmentRepository.cs",
+              "ViewState": "AgIAAI0AAAAAAAAAAAAkwKIAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-23T10:13:42.988Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ProductController.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\source\\repos\\InventoryProject\\InventoryProject.App\\Controllers\\ProductController.cs",
+              "RelativeDocumentMoniker": "InventoryProject.App\\Controllers\\ProductController.cs",
+              "ToolTip": "C:\\Users\\Admin\\source\\repos\\InventoryProject\\InventoryProject.App\\Controllers\\ProductController.cs",
+              "RelativeToolTip": "InventoryProject.App\\Controllers\\ProductController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-23T07:50:43.042Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "ProductRepository.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\source\\repos\\InventoryProject\\InventoryProject.DataAccess\\Persistence\\Repositories\\ProductRepo\\ProductRepository.cs",
+              "RelativeDocumentMoniker": "InventoryProject.DataAccess\\Persistence\\Repositories\\ProductRepo\\ProductRepository.cs",
+              "ToolTip": "C:\\Users\\Admin\\source\\repos\\InventoryProject\\InventoryProject.DataAccess\\Persistence\\Repositories\\ProductRepo\\ProductRepository.cs",
+              "RelativeToolTip": "InventoryProject.DataAccess\\Persistence\\Repositories\\ProductRepo\\ProductRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAA8AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-23T03:21:52.265Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "productAdjustmentScript.js",
+              "DocumentMoniker": "C:\\Users\\Admin\\source\\repos\\InventoryProject\\InventoryProject.App\\wwwroot\\js\\adjustment\\productAdjustmentScript.js",
+              "RelativeDocumentMoniker": "InventoryProject.App\\wwwroot\\js\\adjustment\\productAdjustmentScript.js",
+              "ToolTip": "C:\\Users\\Admin\\source\\repos\\InventoryProject\\InventoryProject.App\\wwwroot\\js\\adjustment\\productAdjustmentScript.js",
+              "RelativeToolTip": "InventoryProject.App\\wwwroot\\js\\adjustment\\productAdjustmentScript.js",
+              "ViewState": "AgIAAGQAAAAAAAAAAAAgwG0AAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-07-22T12:19:25.172Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "IProductAdjustmentRepository.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\source\\repos\\InventoryProject\\InventoryProject.DataAccess\\Persistence\\Repositories\\ProductAdjustmentRepo\\IProductAdjustmentRepository.cs",
+              "RelativeDocumentMoniker": "InventoryProject.DataAccess\\Persistence\\Repositories\\ProductAdjustmentRepo\\IProductAdjustmentRepository.cs",
+              "ToolTip": "C:\\Users\\Admin\\source\\repos\\InventoryProject\\InventoryProject.DataAccess\\Persistence\\Repositories\\ProductAdjustmentRepo\\IProductAdjustmentRepository.cs",
+              "RelativeToolTip": "InventoryProject.DataAccess\\Persistence\\Repositories\\ProductAdjustmentRepo\\IProductAdjustmentRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwA4AAABWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-22T09:28:16.888Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
