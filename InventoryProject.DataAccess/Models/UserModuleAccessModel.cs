@@ -6,21 +6,21 @@ using System.Threading.Tasks;
 
 namespace InventoryProject.DataAccess.Models
 {
-    public class UserAccessModel
+    public class UserModuleAccessModel
     {
         public int Id { get; set; }
 
         public int UserId { get; set; }
 
-        public string ModuleId { get; set; }
+        public int ModuleId { get; set; }
 
-        public bool? CanCreate { get; set; }
+        public bool CanCreate { get; set; }
 
-        public bool? CanEdit { get; set; }
+        public bool CanEdit { get; set; }
 
-        public bool? CanDelete { get; set; }
+        public bool CanDelete { get; set; }
 
-        public bool? CanView { get; set; }
+        public bool CanView { get; set; }
 
         public int CreatedById { get; set; }
 
@@ -29,5 +29,7 @@ namespace InventoryProject.DataAccess.Models
         public int? ModifiedById { get; set; }
 
         public DateTime? DateModified { get; set; }
+        public string ModuleCode { get; set; }
+        public string ModuleName { get; set; }
     }
 }

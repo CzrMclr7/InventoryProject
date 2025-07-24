@@ -14,6 +14,8 @@ public partial class InventoryProjectDatabaseContext : DbContext
     {
     }
 
+    public virtual DbSet<Module> Modules { get; set; }
+
     public virtual DbSet<Product> Products { get; set; }
 
     public virtual DbSet<ProductAdjustment> ProductAdjustments { get; set; }
@@ -24,10 +26,22 @@ public partial class InventoryProjectDatabaseContext : DbContext
 
     public virtual DbSet<User> Users { get; set; }
 
-    public virtual DbSet<UserAccess> UserAccesses { get; set; }
+    public virtual DbSet<UserModuleAccess> UserModuleAccesses { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        modelBuilder.Entity<Module>(entity =>
+        {
+            entity.ToTable("Module");
+
+            entity.Property(e => e.ModuleCode)
+                .IsRequired()
+                .HasMaxLength(100);
+            entity.Property(e => e.ModuleName)
+                .IsRequired()
+                .HasMaxLength(100);
+        });
+
         modelBuilder.Entity<Product>(entity =>
         {
             entity.Property(e => e.DateCreated).HasDefaultValueSql("GETDATE()");
@@ -102,18 +116,19 @@ public partial class InventoryProjectDatabaseContext : DbContext
                 .HasMaxLength(50);
         });
 
-        modelBuilder.Entity<UserAccess>(entity =>
+        modelBuilder.Entity<UserModuleAccess>(entity =>
         {
-            entity.ToTable("UserAccess");
+            entity.ToTable("UserModuleAccess");
 
-            entity.Property(e => e.ModuleId)
-                .HasMaxLength(10)
-                .IsFixedLength();
+            entity.HasOne(d => d.Module).WithMany(p => p.UserModuleAccesses)
+                .HasForeignKey(d => d.ModuleId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_UserModuleAccess_Module");
 
-            entity.HasOne(d => d.User).WithMany(p => p.UserAccesses)
+            entity.HasOne(d => d.User).WithMany(p => p.UserModuleAccesses)
                 .HasForeignKey(d => d.UserId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_UserAccess_User");
+                .HasConstraintName("FK_UserModuleAccess_User");
         });
 
         OnModelCreatingPartial(modelBuilder);

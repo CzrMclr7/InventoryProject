@@ -157,11 +157,11 @@ namespace InventoryProject.DataAccess.Persistence.Repositories.ProductAdjustment
                 await _contextHelper.BatchDeleteNoRollbackAsync(entities);
             }
         }
-        public async Task<IEnumerable<SalesModel>> GetProductAdjustmentData(int? id)
+        public async Task<IEnumerable<ProductAdjustmentModel>> GetProductAdjustmentData(string? actionType)
         {
-            var data = await _db.LoadData<SalesModel, dynamic>(
-            "spRpt_ProductAdjustments",
-            new { id },
+            var data = await _db.LoadData<ProductAdjustmentModel, dynamic>(
+            "spRpt_ProductAdjustment",
+            new { actionType },
             CommandType.StoredProcedure);
             return data;
         }

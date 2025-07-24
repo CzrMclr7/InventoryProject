@@ -16,5 +16,6 @@ namespace InventoryProject.DataAccess.Persistence.Repositories.UserRepo
         Task<User?> GetByUserNameAsync(string userName);
 
         Task<User?> GetUserByIdAsync(int id);
+        string GetFirstNameById(int id);
     }
 }

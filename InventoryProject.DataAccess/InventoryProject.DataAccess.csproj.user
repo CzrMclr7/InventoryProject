@@ -5,6 +5,9 @@
     <Compile Update="PredefinedReports\DetailedSalesReport.cs">
       <SubType>XtraReport</SubType>
     </Compile>
+    <Compile Update="PredefinedReports\ProductAdjustmentReport.cs">
+      <SubType>XtraReport</SubType>
+    </Compile>
     <Compile Update="PredefinedReports\ProductListReport.cs">
       <SubType>XtraReport</SubType>
     </Compile>
