@@ -164,22 +164,22 @@ namespace InventoryProject.App.Controllers
             catch (Exception ex) { return BadRequest(ex.Message); }
         }
 
-        public IActionResult ProductAdjustmentReport(string actionType = "All")
-        {
-            // Example logic
-            IEnumerable<ProductAdjustment> data;
+        //public IActionResult ProductAdjustmentReport(string actionType = "All")
+        //{
+        //    // Example logic
+        //    IEnumerable<ProductAdjustment> data;
 
-            if (actionType == "IN")
-                data = _context.ProductAdjustments.Where(p => p.Action == "IN").ToList();
-            else if (actionType == "OUT")
-                data = _context.ProductAdjustments.Where(p => p.Action == "OUT").ToList();
-            else
-                data = _context.ProductAdjustments.ToList();
+        //    if (actionType == "IN")
+        //        data = _context.ProductAdjustments.Where(p => p.Action == "IN").ToList();
+        //    else if (actionType == "OUT")
+        //        data = _context.ProductAdjustments.Where(p => p.Action == "OUT").ToList();
+        //    else
+        //        data = _context.ProductAdjustments.ToList();
 
-            // Generate PDF using the filtered data...
-            // Return PDF file
+        //    // Generate PDF using the filtered data...
+        //    // Return PDF file
 
-            return View(data); // or return File(...) if PDF is generated directly
-        }
+        //    return View(data); // or return File(...) if PDF is generated directly
+        //}
     }
 }
