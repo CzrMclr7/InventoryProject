@@ -1,5 +1,6 @@
 ﻿using InventoryProject.DataAccess.Models;
 using InventoryProject.DataAccess.Persistence.Repositories.ProductRepo;
+using InventoryProject.DataAccess.Persistence.Repositories.UserModuleAccessRepo;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -9,14 +10,19 @@ namespace InventoryProject.App.Controllers
     public class ProductController : Controller
     {
         private readonly IProductRepository _repo;
+        private readonly IUserModuleAccessRepository _userModuleAccessRepo;
 
-        public ProductController(IProductRepository repo)
+        protected int UserId => int.Parse(User.Identity.Name);
+
+        public ProductController(IProductRepository repo, IUserModuleAccessRepository userModuleAccessRepo)
         {
             _repo = repo;
+            _userModuleAccessRepo = userModuleAccessRepo;
         }
 
         public IActionResult Index()
         {
+            var accessRights = _userModuleAccessRepo.GetUserModuleAccess(UserId);
             var model = new ProductModel();
             return View(model);
         }
@@ -41,10 +47,9 @@ namespace InventoryProject.App.Controllers
         {
             try
             {
-                int userId = int.Parse(User.Identity.Name ?? "0");
                 if (!ModelState.IsValid)
                     return BadRequest(ModelState);
-                var data = await _repo.SaveAsync(model, userId);
+                var data = await _repo.SaveAsync(model, UserId);
                 return Ok(data);
             }
             catch (Exception ex)

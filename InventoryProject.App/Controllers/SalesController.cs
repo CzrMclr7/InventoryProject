@@ -13,6 +13,8 @@ namespace InventoryProject.App.Controllers
         private readonly ISalesRepository _salesRepo;
         private readonly ISalesDetailRepository _salesDetailRepo;
 
+        protected int UserId => int.Parse(User.Identity.Name);
+
         public SalesController(
             ISalesRepository salesRepo,
             ISalesDetailRepository salesDetailRepo)
@@ -98,9 +100,7 @@ namespace InventoryProject.App.Controllers
                 if (!ModelState.IsValid)
                     return BadRequest(ModelState);
 
-                int userId = int.Parse(User.Identity.Name ?? "0");
-
-                var data = await _salesRepo.SaveAsync(model.Sales, model.SalesDetails, userId); 
+                var data = await _salesRepo.SaveAsync(model.Sales, model.SalesDetails, UserId); 
 
                 return Ok(data);
             }

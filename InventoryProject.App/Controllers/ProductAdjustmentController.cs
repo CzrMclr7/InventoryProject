@@ -1,7 +1,9 @@
 ﻿using InventoryProject.App.ViewModels;
+using InventoryProject.DataAccess.DataContextModels;
 using InventoryProject.DataAccess.Models;
 using InventoryProject.DataAccess.Persistence.Repositories.ProductAdjustmentRepo;
 using InventoryProject.DataAccess.Persistence.Repositories.ProductRepo;
+using InventoryProject.DataAccess.Persistence.Repositories.UserModuleAccessRepo;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -11,13 +13,46 @@ namespace InventoryProject.App.Controllers
     public class ProductAdjustmentController : Controller
     {
         private readonly IProductAdjustmentRepository _repo;
-        public ProductAdjustmentController(IProductAdjustmentRepository repo)
+        private readonly IUserModuleAccessRepository _userModuleAccessRepo;
+        protected int UserId => int.Parse(User.Identity.Name);
+        public ProductAdjustmentController(IProductAdjustmentRepository repo, IUserModuleAccessRepository userModuleAccessRepo)
         {
             _repo = repo;
+            _userModuleAccessRepo = userModuleAccessRepo;
         }
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            var accessRights = await _userModuleAccessRepo.GetUserModuleAccess(UserId);
+
+            var salesAccess = accessRights.FirstOrDefault(x => x.ModuleCode == "SALES");
+
+            if (salesAccess == null || !salesAccess.CanView)
+                return Forbid();
+
+            var viewModel = new ProductAdjustmentViewModel
+            {
+                ProductAdjustments = (await _repo.Inq(null)).ToList(),
+                AccessRights = accessRights.FirstOrDefault(x => x.ModuleCode == "SALES")
+            };
+
+            return View(viewModel);
+
+
+            // in html
+            //@if(Model.AccessRights.CanAdd)
+            //{
+            //    < button class="btn btn-primary">Add Sales</button>
+            //}
+
+            //@if(Model.AccessRights.CanEdit)
+            //        {
+            //    < button class="btn btn-warning">Edit</button>
+            //}
+
+            //@if(Model.AccessRights.CanDelete)
+            //{
+            //    < button class= "btn btn-danger" > Delete </ button >
+            //}
         }
 
         [HttpGet]
@@ -42,9 +77,8 @@ namespace InventoryProject.App.Controllers
             {
                 //if (!ModelState.IsValid)
                 //    return BadRequest(ModelState);
-                int userId = int.Parse(User.Identity.Name ?? "0");
 
-                var data = await _repo.SaveAsync(model, userId);
+                var data = await _repo.SaveAsync(model, UserId);
 
                 return Ok(data);
             }
@@ -60,9 +94,7 @@ namespace InventoryProject.App.Controllers
         {
             try
             {
-                int userId = int.Parse(User.Identity.Name ?? "0");
-
-                var data = await _repo.SaveAsync(model, userId);
+                var data = await _repo.SaveAsync(model, UserId);
 
                 return Ok(data);
             }
