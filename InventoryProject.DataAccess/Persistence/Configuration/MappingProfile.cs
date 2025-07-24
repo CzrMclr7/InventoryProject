@@ -17,8 +17,9 @@ namespace InventoryProject.DataAccess.Persistence.Configuration
             CreateMap<Sale, SalesModel>().ReverseMap();
             CreateMap<SalesDetail, SalesDetailModel>().ReverseMap();
             CreateMap<User, UserModel>().ReverseMap();
-            CreateMap<UserAccess, UserAccessModel>().ReverseMap();
+            CreateMap<UserModuleAccess, UserModuleAccessModel>().ReverseMap();
             CreateMap<ProductAdjustment, ProductAdjustmentModel>().ReverseMap();
+            CreateMap<Module, ModuleModel>().ReverseMap();
             //CreateMap<reportd, UserModel>().ReverseMap();
         }
     }

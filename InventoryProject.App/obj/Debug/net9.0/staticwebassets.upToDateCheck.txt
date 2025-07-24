@@ -57,6 +57,7 @@ C:\Users\Admin\source\repos\InventoryProject\InventoryProject.App\wwwroot\lib\bo
 C:\Users\Admin\source\repos\InventoryProject\InventoryProject.App\wwwroot\lib\bootstrap\dist\js\bootstrap.esm.js
 C:\Users\Admin\source\repos\InventoryProject\InventoryProject.App\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.css
 C:\Users\Admin\source\repos\InventoryProject\InventoryProject.App\wwwroot\lib\jquery\dist\jquery.min.map
+C:\Users\Admin\source\repos\InventoryProject\InventoryProject.App\wwwroot\js\users\userModuleAccessScript.js
 C:\Users\Admin\source\repos\InventoryProject\InventoryProject.App\wwwroot\lib\jquery\dist\jquery.slim.min.js
 C:\Users\Admin\source\repos\InventoryProject\InventoryProject.App\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.min.css
 C:\Users\Admin\source\repos\InventoryProject\InventoryProject.App\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.min.css
@@ -77,6 +78,7 @@ wwwroot\js\products\productsScript.js
 wwwroot\js\Report\ProductsSummaryReportScript.js
 wwwroot\js\sales\salesScript.js
 wwwroot\js\site.js
+wwwroot\js\users\userModuleAccessScript.js
 wwwroot\js\users\userProfileScript.js
 wwwroot\js\users\userScript.js
 wwwroot\lib\bootstrap\dist\css\bootstrap.css

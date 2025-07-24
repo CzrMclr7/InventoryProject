@@ -22,5 +22,6 @@ namespace InventoryProject.DataAccess.Persistence.Repositories.ProductAdjustment
         Task BatchDeleteNoRollbackAsyncBySalesDetailId(int[] ids);
         //string GetProductNameById(int id);
         //Task<Product> UpdateQtyById(SalesDetailModel salesDetailModel, int userId);
+        Task<IEnumerable<ProductAdjustmentModel>> GetProductAdjustmentData(string? actionType);
     }
 }

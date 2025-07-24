@@ -21,6 +21,9 @@ using InventoryProject.DataAccess.Services.Interface;
 using InventoryProject.DataAccess.DataAccess.Interface;
 using InventoryProject.DataAccess.DataAccess;
 using InventoryProject.DataAccess.Persistence.Repositories.ProductAdjustmentRepo;
+using InventoryProject.DataAccess.Persistence.Repositories.UserModuleAccessRepo;
+using InventoryProject.DataAccess.Persistence.Repositories.ModuleRepo;
+//using InventoryProject.DataAccess.Persistence.Repositories.UserModuleAccess;
 
 namespace InventoryProject.DataAccess
 {
@@ -49,6 +52,8 @@ namespace InventoryProject.DataAccess
             services.AddScoped<IAuthenticationService, AuthenticationService>();
             services.AddScoped<IReportDA, ReportDa>();
             services.AddScoped<IProductAdjustmentRepository, ProductAdjustmentRepository>();
+            services.AddScoped<IUserModuleAccessRepository, UserModuleAccessRepository>();
+            services.AddScoped<IModuleRepository, ModuleRepository>();
             // Add user access repository
 
             return services;

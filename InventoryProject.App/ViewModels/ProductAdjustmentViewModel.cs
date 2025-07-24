@@ -8,6 +8,7 @@ public class ProductAdjustmentViewModel
     //public List<>? SalesDetails { get; set; } //Details
     public List<ProductAdjustmentModel>? ProductAdjustments { get; set; }
     public ProductModel? Products { get; set; }
+    public UserModuleAccessModel AccessRights { get; set; }
 
 
 }

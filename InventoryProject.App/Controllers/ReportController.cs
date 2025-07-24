@@ -7,6 +7,8 @@ using InventoryProject.DataAccess.Models.ReportFilters;
 using InventoryProject.DataAccess.Persistence.Repositories.ProductRepo;
 using InventoryProject.DataAccess.Persistence.Repositories.SalesDetailRepo;
 using InventoryProject.DataAccess.Persistence.Repositories.SalesRepo;
+using InventoryProject.DataAccess.Persistence.Repositories.ProductAdjustmentRepo;
+using InventoryProject.DataAccess.Persistence.Repositories.UserRepo;
 using InventoryProject.DataAccess.PredefinedReports;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -22,26 +24,31 @@ namespace InventoryProject.App.Controllers
         private readonly IReportDA _reportDa;
         private readonly ISalesRepository _salesRepo;
         private readonly ISalesDetailRepository _salesDetailRepo;
+        private readonly IProductAdjustmentRepository _productAdjustmentRepo;
+        private readonly IUserRepository _userRepo;
+
+        protected int UserId => int.Parse(User.Identity.Name);
 
         public ReportController(IProductRepository productRepo, IReportDA reportDa,
-                        ISalesRepository salesRepo, ISalesDetailRepository salesDetailRepo)
+                        ISalesRepository salesRepo, ISalesDetailRepository salesDetailRepo, 
+                        IProductAdjustmentRepository productAdjustmentRepo, IUserRepository userRepo)
         {
             _productRepo = productRepo;
             _reportDa = reportDa;
             _salesRepo = salesRepo;
             _salesDetailRepo = salesDetailRepo;
+            _productAdjustmentRepo = productAdjustmentRepo;
+            _userRepo = userRepo;
         }
 
         public IActionResult Index()
         {
             return View();
         }
-
         public async Task<IActionResult> ProductsSummary()
         {
             try
             {
-                var userId = int.Parse(User.Identity.Name);
                 //var companyId = int.Parse(User.FindFirstValue("Company"));
                 ////var userAccess = await _userRepo.GetUserAccessByModule(userId, companyId, ModuleCodes.CONST_RPT_AP_AGING_DETAILS);
                 //if (userAccess == null || !userAccess.CanRead)
@@ -67,7 +74,7 @@ namespace InventoryProject.App.Controllers
         }
 
         public async Task<IActionResult> ProductReport()
-        { 
+        {
             // Get product data from repository 
             var productList = await _productRepo.Inq(null);
             // Prepare data for the report 
@@ -76,7 +83,7 @@ namespace InventoryProject.App.Controllers
                 new ProductReportModel
                 {
                     Company = "MNLeistung Inc.",
-                    CreatedBy = "System",
+                    CreatedBy = _userRepo.GetFirstNameById(UserId),
                     Title = "Product List Report",
                     Products = [..productList]
                 }
@@ -98,38 +105,21 @@ namespace InventoryProject.App.Controllers
 
         public async Task<IActionResult> DetailedSalesReport()
         {
-           // Get sales data from repository
-           var salesList = await _salesRepo.GetDetailedSalesData(null);
-            //// Get sales detail data from repository 
-            //var salesDetailList = await _salesDetailRepo.Inq(null);
-            // Prepare data for the report 
-            //var reportData = await _salesRepo.GetDetailedSalesData(null);
+
+            // Get sales data from repository
+            var salesList = await _salesRepo.GetDetailedSalesData(null);
 
             var reportData = new List<DetailedSalesReportModel>
             {
                 new DetailedSalesReportModel
                 {
                     Company = "MNLeistung Inc.",
-                    CreatedBy = "System",
+                    CreatedBy = _userRepo.GetFirstNameById(UserId),
                     Title = "Product List Report",
                     Sales = [.. salesList]
                 }
             };
 
-            //reportData.Parameters["Company"].Value = "MNLeistung Inc.";
-            //reportData.Parameters["CreatedBy"].Value = "System";
-            //reportData.Parameters["Title"].Value = "Detailed Sales Report";
-            //var reportData = new List<DetailedSalesReportModel>
-            //{
-            //    new DetailedSalesReportModel
-            //    {
-            //        Company = "MNLeistung Inc.",
-            //        CreatedBy = "System",
-            //        Title = "Detailed Sales Report",
-            //        Sales = [.. salesList],
-            //        SalesDetail = [.. salesDetailList]
-            //    }
-            //};
             // Create the report instance 
             var report = new DetailedSalesReport()
             {
@@ -150,7 +140,6 @@ namespace InventoryProject.App.Controllers
         {
             try
             {
-                var userId = int.Parse(User.Identity.Name);
                 var companyId = int.Parse(User.FindFirstValue("Company"));
                 //var userAccess = await _userRepo.GetUserAccessByModule(userId, companyId, ModuleCodes.CONST_RPT_AP_AGING_DETAILS);
                 //if (userAccess == null || !userAccess.CanRead)
@@ -164,22 +153,33 @@ namespace InventoryProject.App.Controllers
             catch (Exception ex) { return BadRequest(ex.Message); }
         }
 
-        //public IActionResult ProductAdjustmentReport(string actionType = "All")
-        //{
-        //    // Example logic
-        //    IEnumerable<ProductAdjustment> data;
+        public async Task<IActionResult> ProductAdjustmentReportAsync(string actionType = "All")
+        {
+            var productAdjusmentList = await _productAdjustmentRepo.GetProductAdjustmentData(actionType);
 
-        //    if (actionType == "IN")
-        //        data = _context.ProductAdjustments.Where(p => p.Action == "IN").ToList();
-        //    else if (actionType == "OUT")
-        //        data = _context.ProductAdjustments.Where(p => p.Action == "OUT").ToList();
-        //    else
-        //        data = _context.ProductAdjustments.ToList();
+            var reportData = new List<ProductAdjustmentReportModel>
+            {
+                new ProductAdjustmentReportModel
+                {
+                    Company = "MNLeistung Inc.",
+                    CreatedBy = _userRepo.GetFirstNameById(UserId),
+                    Title = "Product Adjustment Report",
+                    ProductAdjustments = [.. productAdjusmentList]
+                }
+            };
 
-        //    // Generate PDF using the filtered data...
-        //    // Return PDF file
+            var report = new ProductAdjustmentReport()
+            {
+                DataSource = reportData
+            };
 
-        //    return View(data); // or return File(...) if PDF is generated directly
-        //}
+            // Export report to PDF stream 
+            using var stream = new MemoryStream();
+            report.ExportToPdf(stream);
+            stream.Position = 0;
+
+            // Return the PDF as a downloadable file 
+            return File(stream.ToArray(), "application/pdf", "ProductAdjustment.pdf");
+        }
     }
 }

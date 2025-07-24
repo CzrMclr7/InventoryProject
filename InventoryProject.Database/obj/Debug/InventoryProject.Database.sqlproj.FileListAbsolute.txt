@@ -4,3 +4,7 @@ C:\Users\Admin\source\repos\InventoryProject\InventoryProject.Database\bin\Debug
 C:\Users\Admin\source\repos\InventoryProject\InventoryProject.Database\obj\Debug\InventoryProject.Database.sqlproj.AssemblyReference.cache
 C:\Users\Admin\source\repos\InventoryProject\InventoryProject.Database\obj\Debug\InventoryProject.Database.dll
 C:\Users\Admin\source\repos\InventoryProject\InventoryProject.Database\obj\Debug\InventoryProject.Database.pdb
+C:\Users\Admin\source\repos\InventoryProject\InventoryProject.Database\obj\Debug\Model.xml
+C:\Users\Admin\source\repos\InventoryProject\InventoryProject.Database\obj\Debug\refactor.xml
+C:\Users\Admin\source\repos\InventoryProject\InventoryProject.Database\obj\Debug\postdeploy.sql
+C:\Users\Admin\source\repos\InventoryProject\InventoryProject.Database\obj\Debug\predeploy.sql

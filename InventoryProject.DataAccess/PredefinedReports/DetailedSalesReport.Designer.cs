@@ -126,7 +126,6 @@
             this.PageHeader.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
             this.xrLabel8,
             this.xrLabel7});
-            this.PageHeader.Expanded = false;
             this.PageHeader.Name = "PageHeader";
             // 
             // xrLabel8
@@ -188,7 +187,6 @@
             this.PageFooter.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
             this.xrLabel10,
             this.xrLabel9});
-            this.PageFooter.Expanded = false;
             this.PageFooter.Name = "PageFooter";
             // 
             // objectDataSource3

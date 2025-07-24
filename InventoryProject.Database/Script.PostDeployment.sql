@@ -15,3 +15,18 @@ ELSE
 BEGIN 
     PRINT 'Products table already seeded.'; 
 END
+
+IF NOT EXISTS (SELECT 1 FROM [dbo].[Module]) 
+BEGIN 
+    PRINT 'Seeding initial Modules...'; 
+
+    INSERT INTO [dbo].[Module] (ModuleName, ModuleCode) 
+    VALUES  
+    ('Sales', 'SALES'), 
+    ('Product', 'PRODUCT'), 
+    ('Product Adjustment', 'ADJUSTMENT'); 
+END
+ELSE
+BEGIN 
+    PRINT 'Modules table already seeded.'; 
+END

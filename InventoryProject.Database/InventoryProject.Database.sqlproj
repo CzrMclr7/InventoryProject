@@ -68,9 +68,12 @@
     <Build Include="Stored Procedures\spSalesDetail_GetBySalesId.sql" />
     <Build Include="Tables\User.sql" />
     <Build Include="Stored Procedures\spRpt_DetailedSales.sql" />
-    <Build Include="Tables\UserAccess.sql" />
+    <Build Include="Tables\UserModuleAccess.sql" />
     <Build Include="Tables\ProductAdjustment.sql" />
     <Build Include="Stored Procedures\spProductAdjustment_Inq.sql" />
+    <Build Include="Stored Procedures\spRpt_ProductAdjustment.sql" />
+    <Build Include="Tables\Module.sql" />
+    <Build Include="Stored Procedures\spUserModuleAccess_GetByUserId.sql" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="Script.PostDeployment.sql" />

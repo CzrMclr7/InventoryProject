@@ -8,7 +8,10 @@ AS
 		ISNULL(p.Name, '') Name, 
 		ISNULL(sd.Price,0) Price, 
 		ISNULL(sd.Quantity,0) Quantity
-	FROM SalesDetail as sd
-	INNER JOIN Products as p ON sd.ProductId = p.Id
-	WHERE SalesId = @id;
+	FROM 
+		SalesDetail as sd
+	INNER JOIN 
+		Products as p ON sd.ProductId = p.Id
+	WHERE 
+		SalesId = @id;
 RETURN 0

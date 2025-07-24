@@ -24,6 +24,7 @@ namespace InventoryProject.App.Controllers
         private readonly DataAccess.Services.Interface.IAuthenticationService _authenticationService;
         private readonly IMapper _mapper;
         private readonly IWebHostEnvironment _webHostEnvironment;
+        protected int UserId => int.Parse(User.Identity.Name);
 
         public AccountController(IUserRepository userRepo,
             DataAccess.Services.Interface.IAuthenticationService authenticationService,
@@ -218,12 +219,11 @@ namespace InventoryProject.App.Controllers
         {
             try
             {
-                int userId = int.Parse(User.Identity.Name ?? "0");
                 int companyId = int.Parse(User.FindFirstValue("Company") ?? "0");
 
-                if (userId != 0)
+                if (UserId != 0)
                 {
-                    var user = await _userRepo.GetUserByIdAsync(userId);
+                    var user = await _userRepo.GetUserByIdAsync(UserId);
                     if (user is not null)
                         return RedirectToAction("LogOff");
                 }
@@ -238,8 +238,7 @@ namespace InventoryProject.App.Controllers
         {
             try
             {
-                int userId = int.Parse(User.Identity.Name ?? "0");
-                var user = await _userRepo.GetUserByIdAsync(userId);
+                var user = await _userRepo.GetUserByIdAsync(UserId);
                 if (user is null)
                     return RedirectToAction("Login");
 
@@ -266,7 +265,6 @@ namespace InventoryProject.App.Controllers
                 //if (!ModelState.IsValid)
                 //    return Conflict(ModelState.Where(x => x.Value.Errors.Any()).Select(x => new { x.Key, x.Value.Errors }));
 
-                var userId = int.Parse(User.Identity.Name);
                 //var companyId = int.Parse(User.FindFirstValue("Company"));
                 var rootFolder = _webHostEnvironment.WebRootPath;
 
@@ -290,7 +288,7 @@ namespace InventoryProject.App.Controllers
 
                 model.ProfilePicture = profilePicture;
 
-                var data = await _userRepo.SaveAsync(model, userId);
+                var data = await _userRepo.SaveAsync(model, UserId);
 
                 return Ok();
             }
@@ -306,5 +304,6 @@ namespace InventoryProject.App.Controllers
             var user = await _userRepo.GetUserByIdAsync(id);
             return Ok(user);
         }
+
     }
 }

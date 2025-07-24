@@ -1,14 +1,17 @@
 ﻿using AutoMapper;
+using DevExpress.CodeParser;
 using InventoryProject.DataAccess.DataContext;
 using InventoryProject.DataAccess.DataContextModels;
 using InventoryProject.DataAccess.Models;
 using InventoryProject.DataAccess.Models.Authentication;
+using InventoryProject.DataAccess.Persistence.Repositories.ModuleRepo;
 using InventoryProject.DataAccess.Services;
 using Microsoft.AspNetCore.Cryptography.KeyDerivation;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
@@ -21,16 +24,19 @@ public class UserRepository : IUserRepository
     private readonly EfCoreHelper<User> _contextHelper;
     private readonly ISqlDataAccessService _db;
     private readonly IMapper _mapper;
+    private readonly IModuleRepository _moduleRepository;
 
     public UserRepository(
         InventoryProjectDatabaseContext context,
         ISqlDataAccessService db,
-        IMapper mapper)
+        IMapper mapper,
+        IModuleRepository moduleRepository)
     {
         _context = context;
         _contextHelper = new EfCoreHelper<User>(context);
         _db = db;
         _mapper = mapper;
+        _moduleRepository = moduleRepository;
     }
 
     public async Task<User> SaveAsync(UserModel model, int userId)
@@ -70,9 +76,28 @@ public class UserRepository : IUserRepository
                     user.IsAdmin = model.IsAdmin;
                     user.ProfilePicture = model.ProfilePicture;
                 }
-       
-                //_model.Id = user.Id;          
-                    
+
+                // Call All Module then loop it to save in UserModuleAccess 
+                var modules = await _moduleRepository.GetAllModules();
+                // Add code to include adding UserModuleAccess
+                var accessList = modules.Select(m => new UserModuleAccess
+                {
+                    UserId = userId,
+                    ModuleId = m.Id,
+                    CanView = true,
+                    CanCreate = false,
+                    CanEdit = false,
+                    CanDelete = false
+                }).ToList();
+
+                //var userModuleAccess = new UserModuleAccessModel
+                //{
+                //    ProductId = salesDetail.ProductId,
+                //    SalesDetailId = salesDetail.Id,
+                //    Action = "OUT",
+                //    Quantity = salesDetail.Quantity,
+                //};
+
                 user = await UpdateAsync(user, userId);
             }
                 
@@ -156,4 +181,13 @@ public class UserRepository : IUserRepository
 
     public async Task<User?> GetUserByIdAsync(int id) =>
      await _context.Users.FirstOrDefaultAsync(u => u.Id == id);
+
+    public string GetFirstNameById(int id)
+    {
+        var name = _context.Users
+            .Where(x => x.Id == id)
+            .Select(x => x.FirstName)
+            .FirstOrDefault();
+        return name ?? string.Empty;
+    }
 }

@@ -37,5 +37,5 @@ public partial class User
 
     public int? PhoneNumber { get; set; }
 
-    public virtual ICollection<UserAccess> UserAccesses { get; set; } = new List<UserAccess>();
+    public virtual ICollection<UserModuleAccess> UserModuleAccesses { get; set; } = new List<UserModuleAccess>();
 }

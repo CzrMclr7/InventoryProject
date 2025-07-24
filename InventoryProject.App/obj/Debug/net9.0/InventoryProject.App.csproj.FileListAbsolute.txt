@@ -287,3 +287,5 @@ C:\Users\Admin\source\repos\InventoryProject\InventoryProject.App\obj\Debug\net9
 C:\Users\Admin\source\repos\InventoryProject\InventoryProject.App\obj\Debug\net9.0\compressed\4vgpxc5k1g-xvs8yf3luv.gz
 C:\Users\Admin\source\repos\InventoryProject\InventoryProject.App\obj\Debug\net9.0\compressed\8e2gt99ihm-ff2hgmepiq.gz
 C:\Users\Admin\source\repos\InventoryProject\InventoryProject.App\obj\Debug\net9.0\compressed\ykx1gkffkc-j1labodf7s.gz
+C:\Users\Admin\source\repos\InventoryProject\InventoryProject.App\obj\Debug\net9.0\InventoryProject.App.sourcelink.json
+C:\Users\Admin\source\repos\InventoryProject\InventoryProject.App\obj\Debug\net9.0\compressed\tqazsgc91q-865r085ear.gz
