@@ -8,8 +8,12 @@
 		pa.Action,
 		pa.Quantity,
 		pa.DateCreated
-	FROM ProductAdjustment pa
-	INNER JOIN Products p ON p.Id = pa.ProductId
-	WHERE pa.Id = COALESCE(@id, pa.Id) 
-	ORDER BY pa.DateCreated DESC
+	FROM 
+		ProductAdjustment pa
+	INNER JOIN 
+		Products p ON p.Id = pa.ProductId
+	WHERE 
+		pa.Id = COALESCE(@id, pa.Id) 
+	ORDER BY 
+		pa.DateCreated DESC
 RETURN 0
