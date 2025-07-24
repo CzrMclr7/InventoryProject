@@ -1516,7 +1516,10 @@ RETURN 0]]></Value>
 			<Property Name="BodyScript">
 				<Value><![CDATA[
     SELECT 
+<<<<<<< HEAD
         m.ModuleName,
+=======
+>>>>>>> d47cf395aa57341b2568bbbb12d4f00c7fda582c
         m.ModuleCode,
         uma.CanCreate,
         uma.CanEdit,
@@ -1545,9 +1548,12 @@ RETURN 0]]></Value>
 					<References Name="[dbo].[Module].[Id]" />
 				</Entry>
 				<Entry>
+<<<<<<< HEAD
 					<References Name="[dbo].[Module].[ModuleName]" />
 				</Entry>
 				<Entry>
+=======
+>>>>>>> d47cf395aa57341b2568bbbb12d4f00c7fda582c
 					<References Name="[dbo].[Module].[ModuleCode]" />
 				</Entry>
 				<Entry>
@@ -1595,7 +1601,11 @@ RETURN 0]]></Value>
 				</Entry>
 			</Relationship>
 			<Annotation Type="SysCommentsObjectAnnotation">
+<<<<<<< HEAD
 				<Property Name="Length" Value="378" />
+=======
+				<Property Name="Length" Value="355" />
+>>>>>>> d47cf395aa57341b2568bbbb12d4f00c7fda582c
 				<Property Name="StartLine" Value="1" />
 				<Property Name="StartColumn" Value="1" />
 				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[spUserModuleAccess_GetByUserId]&#xD;&#xA;&#x9;@userId int = 0&#xD;&#xA;AS" />
