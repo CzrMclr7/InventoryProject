@@ -1,6 +1,6 @@
-﻿using DevExpress.Xpo;
-using InventoryProject.DataAccess.DataContext;
+﻿using InventoryProject.DataAccess.DataContext;
 using InventoryProject.DataAccess.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Data;

@@ -9,9 +9,7 @@
        None
 
 ** User actions
-     Create
-       [dbo].[Products] (Table)
-       Default Constraint: unnamed constraint on [dbo].[Products] (Default Constraint)
-       [dbo].[spProducts_Inq] (Procedure)
+     Alter
+       [dbo].[spUserModuleAccess_GetByUserId] (Procedure)
 
 ** Supporting actions

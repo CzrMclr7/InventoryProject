@@ -5,6 +5,7 @@ using InventoryProject.DataAccess.DataContextModels;
 using InventoryProject.DataAccess.Models;
 using InventoryProject.DataAccess.Models.Authentication;
 using InventoryProject.DataAccess.Persistence.Repositories.ModuleRepo;
+using InventoryProject.DataAccess.Persistence.Repositories.UserModuleAccessRepo;
 using InventoryProject.DataAccess.Services;
 using Microsoft.AspNetCore.Cryptography.KeyDerivation;
 using Microsoft.EntityFrameworkCore;
@@ -25,18 +26,21 @@ public class UserRepository : IUserRepository
     private readonly ISqlDataAccessService _db;
     private readonly IMapper _mapper;
     private readonly IModuleRepository _moduleRepository;
+    private readonly IUserModuleAccessRepository _userModuleAccessRepository;
 
     public UserRepository(
         InventoryProjectDatabaseContext context,
         ISqlDataAccessService db,
         IMapper mapper,
-        IModuleRepository moduleRepository)
+        IModuleRepository moduleRepository,
+        IUserModuleAccessRepository userModuleAccessRepository)
     {
         _context = context;
         _contextHelper = new EfCoreHelper<User>(context);
         _db = db;
         _mapper = mapper;
         _moduleRepository = moduleRepository;
+        _userModuleAccessRepository = userModuleAccessRepository;
     }
 
     public async Task<User> SaveAsync(UserModel model, int userId)
@@ -52,8 +56,26 @@ public class UserRepository : IUserRepository
             if (model.Id == 0 && model.IsUpdate == false)
             {
                 await ValidateUserAsync(_model);
+                await ValidateConfirmPassword(model);
                 _model.Password = GenerateHashedPassword(_model.Password, salt);
                 _model = await CreateAsync(_model, userId);
+
+                var modules = await _moduleRepository.GetAllModules();
+                // Add code to include adding UserModuleAccess
+                var accessList = modules.Select(m => new UserModuleAccessModel
+                {
+                    UserId = _model.Id,
+                    ModuleId = m.Id,
+                    CanView = true,
+                    CanCreate = false,
+                    CanEdit = false,
+                    CanDelete = false
+                }).ToList();
+
+                if (userId == 0)
+                    userId = _model.Id;
+
+                await _userModuleAccessRepository.SaveBulkNoRollBackAsync(accessList, userId);
             }
             else
             {
@@ -75,20 +97,7 @@ public class UserRepository : IUserRepository
                     user.PhoneNumber = model.PhoneNumber;
                     user.IsAdmin = model.IsAdmin;
                     user.ProfilePicture = model.ProfilePicture;
-                }
-
-                // Call All Module then loop it to save in UserModuleAccess 
-                var modules = await _moduleRepository.GetAllModules();
-                // Add code to include adding UserModuleAccess
-                var accessList = modules.Select(m => new UserModuleAccess
-                {
-                    UserId = userId,
-                    ModuleId = m.Id,
-                    CanView = true,
-                    CanCreate = false,
-                    CanEdit = false,
-                    CanDelete = false
-                }).ToList();
+                }                
 
                 //var userModuleAccess = new UserModuleAccessModel
                 //{
@@ -173,7 +182,10 @@ public class UserRepository : IUserRepository
     private async Task ValidateConfirmPassword(UserModel user)
     {
         if (user.NewPassword != user.ConfirmPassword)
-            throw new Exception("New password and Confirm password are not the same.");
+            if (user.Id == 0 && user.NewPassword == "")
+                throw new Exception("Password and Confirm password are not the same.");
+            else if (user.NewPassword != "" && user.NewPassword != null)
+                throw new Exception("New password and Confirm password are not the same.");
     }
 
     public async Task<User?> GetByUserNameAsync(string userName) =>

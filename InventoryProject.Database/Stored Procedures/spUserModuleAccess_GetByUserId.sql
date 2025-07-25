@@ -2,8 +2,10 @@
 	@userId int = 0
 AS
     SELECT 
+        uma.Id,
         m.ModuleName,
         m.ModuleCode,
+        uma.ModuleId,
         uma.CanCreate,
         uma.CanEdit,
         uma.CanDelete,

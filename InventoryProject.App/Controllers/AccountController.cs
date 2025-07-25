@@ -92,7 +92,7 @@ namespace InventoryProject.App.Controllers
                 model.IsUpdate = false;
                 //if (!ModelState.IsValid)
                 //    return BadRequest(ModelState);
-                var data = await _userRepo.SaveAsync(model, userId: 1);
+                var data = await _userRepo.SaveAsync(model, userId: 0);
                 return Ok(data);
             }
             catch (Exception ex)
@@ -129,7 +129,7 @@ namespace InventoryProject.App.Controllers
                 if (result == null)
                     return BadRequest("Invalid Username/Password");
 
-                var data = await _userRepo.SaveAsync(model, userId: 1);
+                var data = await _userRepo.SaveAsync(model, UserId);
 
                 return Ok(data);
             }
@@ -257,10 +257,12 @@ namespace InventoryProject.App.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> SaveUser(UserModel model)
+        public async Task<IActionResult> SaveUser(UserViewModel viewModel)
         {
             try
             {
+                var model = viewModel.User;
+
                 model.IsUpdate = true;
                 //if (!ModelState.IsValid)
                 //    return Conflict(ModelState.Where(x => x.Value.Errors.Any()).Select(x => new { x.Key, x.Value.Errors }));

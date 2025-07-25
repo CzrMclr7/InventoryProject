@@ -13,6 +13,7 @@ namespace InventoryProject.DataAccess.Models
         public int UserId { get; set; }
 
         public int ModuleId { get; set; }
+        public string ModuleName { get; set; }
 
         public bool CanCreate { get; set; }
 
@@ -30,6 +31,6 @@ namespace InventoryProject.DataAccess.Models
 
         public DateTime? DateModified { get; set; }
         public string ModuleCode { get; set; }
-        public string ModuleName { get; set; }
+        
     }
 }

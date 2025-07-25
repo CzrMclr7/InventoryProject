@@ -12,18 +12,18 @@ $(async function () {
         const accessList = [];
         $("#tbl-user-access tbody tr").each(function () {
             const row = $(this);
-            const id = row.data("id");
+            const id = row.find(".module-id").val();
             accessList.push({
                 Id: id,
                 CanView: row.find(".chk-canview").is(":checked"),
-                CanAdd: row.find(".chk-canadd").is(":checked"),
+                CanCreate: row.find(".chk-canadd").is(":checked"),
                 CanEdit: row.find(".chk-canedit").is(":checked"),
                 CanDelete: row.find(".chk-candelete").is(":checked")
             });
         });
 
         $.ajax({
-            url: '/UserAccess/SaveBulk',
+            url: '/UserModuleAccess/SaveBulk',
             method: 'POST',
             contentType: 'application/json',
             data: JSON.stringify(accessList)
@@ -55,12 +55,23 @@ function populateUserAccessTable(data) {
 
     data.forEach(item => {
         const row = `
-            <tr data-id="${item.Id}">
-                <td>${item.ModuleName}</td>
-                <td><input type="checkbox" class="form-check-input chk-canview" ${item.CanView ? "checked" : ""}></td>
-                <td><input type="checkbox" class="form-check-input chk-canadd" ${item.CanAdd ? "checked" : ""}></td>
-                <td><input type="checkbox" class="form-check-input chk-canedit" ${item.CanEdit ? "checked" : ""}></td>
-                <td><input type="checkbox" class="form-check-input chk-candelete" ${item.CanDelete ? "checked" : ""}></td>
+            <tr>
+                <td>
+                    ${item.ModuleName}
+                    <input type="hidden" class="module-id" value="${item.Id ?? 0}" />                 
+                </td>
+                <td  class="text-center">
+                    <input type="checkbox" class="form-check-input chk-canview" ${item.CanView ? "checked" : ""}>
+                </td>
+                <td  class="text-center">
+                    <input type="checkbox" class="form-check-input chk-canadd" ${item.CanCreate ? "checked" : ""}>
+                </td>
+                <td  class="text-center">
+                    <input type="checkbox" class="form-check-input chk-canedit" ${item.CanEdit ? "checked" : ""}>
+                </td>
+                <td  class="text-center">
+                    <input type="checkbox" class="form-check-input chk-candelete" ${item.CanDelete ? "checked" : ""}>
+                </td>
             </tr>
         `;
         tbody.append(row);

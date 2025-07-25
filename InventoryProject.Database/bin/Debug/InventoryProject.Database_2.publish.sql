@@ -40,86 +40,61 @@ USE [$(DatabaseName)];
 
 
 GO
-PRINT N'Rename refactoring operation with key a27336e4-49c8-4a10-9103-8722486e3362 is skipped, element [dbo].[Sales].[Cost] (SqlSimpleColumn) will not be renamed to Price';
+PRINT N'Altering Procedure [dbo].[spUserModuleAccess_GetByUserId]...';
 
 
 GO
-PRINT N'Rename refactoring operation with key 30113f63-331b-470a-b5db-a506b577a829 is skipped, element [dbo].[Sales].[ProductId] (SqlSimpleColumn) will not be renamed to Name';
-
-
-GO
-PRINT N'Creating Table [dbo].[Sales]...';
-
-
-GO
-CREATE TABLE [dbo].[Sales] (
-    [Id]           INT            IDENTITY (1, 1) NOT NULL,
-    [Name]         NVARCHAR (255) NOT NULL,
-    [Price]        NCHAR (10)     NOT NULL,
-    [Quantity]     NCHAR (10)     NOT NULL,
-    [DateCreated]  DATETIME2 (7)  NOT NULL,
-    [CreatedById]  INT            NOT NULL,
-    [DateModified] DATETIME2 (7)  NULL,
-    [ModifiedById] INT            NULL,
-    PRIMARY KEY CLUSTERED ([Id] ASC)
-);
-
-
-GO
-PRINT N'Creating Table [dbo].[SalesDetail]...';
-
-
-GO
-CREATE TABLE [dbo].[SalesDetail] (
-    [Id]        INT        IDENTITY (1, 1) NOT NULL,
-    [SalesId]   NCHAR (10) NOT NULL,
-    [ProductId] NCHAR (10) NOT NULL,
-    PRIMARY KEY CLUSTERED ([Id] ASC)
-);
-
-
-GO
-PRINT N'Creating Default Constraint unnamed constraint on [dbo].[Sales]...';
-
-
-GO
-ALTER TABLE [dbo].[Sales]
-    ADD DEFAULT GETDATE() FOR [DateCreated];
-
-
-GO
--- Refactoring step to update target server with deployed transaction logs
-
-IF OBJECT_ID(N'dbo.__RefactorLog') IS NULL
-BEGIN
-    CREATE TABLE [dbo].[__RefactorLog] (OperationKey UNIQUEIDENTIFIER NOT NULL PRIMARY KEY)
-    EXEC sp_addextendedproperty N'microsoft_database_tools_support', N'refactoring log', N'schema', N'dbo', N'table', N'__RefactorLog'
-END
-GO
-IF NOT EXISTS (SELECT OperationKey FROM [dbo].[__RefactorLog] WHERE OperationKey = 'a27336e4-49c8-4a10-9103-8722486e3362')
-INSERT INTO [dbo].[__RefactorLog] (OperationKey) values ('a27336e4-49c8-4a10-9103-8722486e3362')
-IF NOT EXISTS (SELECT OperationKey FROM [dbo].[__RefactorLog] WHERE OperationKey = '30113f63-331b-470a-b5db-a506b577a829')
-INSERT INTO [dbo].[__RefactorLog] (OperationKey) values ('30113f63-331b-470a-b5db-a506b577a829')
-
-GO
-
+ALTER PROCEDURE [dbo].[spUserModuleAccess_GetByUserId]
+	@userId int = 0
+AS
+    SELECT 
+        uma.Id,
+        m.ModuleName,
+        m.ModuleCode,
+        uma.ModuleId,
+        uma.CanCreate,
+        uma.CanEdit,
+        uma.CanDelete,
+        uma.CanView
+    FROM 
+        UserModuleAccess uma
+    INNER JOIN 
+        Module m ON uma.ModuleId = m.Id
+    WHERE 
+        uma.UserId = @userId
+RETURN 0
 GO
 -- Insert initial seed data into Products table 
 IF NOT EXISTS (SELECT 1 FROM [dbo].[Products]) 
 BEGIN 
     PRINT 'Seeding initial Products...'; 
 
-    INSERT INTO [dbo].[Products] (Id, Name, Qty, Price, DateCreated, CreatedById) 
+    INSERT INTO [dbo].[Products] (Name, Qty, Price, DateCreated, CreatedById) 
     VALUES  
-    (1, 'Laptop', 10, 49999.99, GETDATE(), 1), 
-    (2, 'Monitor', 25, 8999.99, GETDATE(), 1), 
-    (3, 'Mouse', 100, 599.99, GETDATE(), 1), 
-    (4, 'Keyboard', 75, 999.99, GETDATE(), 1), 
-    (5, 'Webcam', 30, 2499.99, GETDATE(), 1); 
+    ('Laptop', 10, 49999.99, GETDATE(), 1), 
+    ('Monitor', 25, 8999.99, GETDATE(), 1), 
+    ('Mouse', 100, 599.99, GETDATE(), 1), 
+    ('Keyboard', 75, 999.99, GETDATE(), 1), 
+    ('Webcam', 30, 2499.99, GETDATE(), 1); 
 END
 ELSE
 BEGIN 
     PRINT 'Products table already seeded.'; 
+END
+
+IF NOT EXISTS (SELECT 1 FROM [dbo].[Module]) 
+BEGIN 
+    PRINT 'Seeding initial Modules...'; 
+
+    INSERT INTO [dbo].[Module] (ModuleName, ModuleCode) 
+    VALUES  
+    ('Sales', 'SALES'), 
+    ('Product', 'PRODUCT'), 
+    ('Product Adjustment', 'ADJUSTMENT'); 
+END
+ELSE
+BEGIN 
+    PRINT 'Modules table already seeded.'; 
 END
 GO
 

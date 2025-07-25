@@ -40,88 +40,60 @@ USE [$(DatabaseName)];
 
 
 GO
-PRINT N'Dropping Default Constraint unnamed constraint on [dbo].[Products]...';
+PRINT N'Altering Procedure [dbo].[spUserModuleAccess_GetByUserId]...';
 
 
 GO
-ALTER TABLE [dbo].[Products] DROP CONSTRAINT [DF__Products__DateCr__24927208];
-
-
-GO
-PRINT N'Starting rebuilding table [dbo].[Products]...';
-
-
-GO
-BEGIN TRANSACTION;
-
-SET TRANSACTION ISOLATION LEVEL SERIALIZABLE;
-
-SET XACT_ABORT ON;
-
-CREATE TABLE [dbo].[tmp_ms_xx_Products] (
-    [Id]           INT             IDENTITY (1, 1) NOT NULL,
-    [Name]         NVARCHAR (255)  NOT NULL,
-    [Qty]          INT             NOT NULL,
-    [Price]        DECIMAL (18, 2) NOT NULL,
-    [DateCreated]  DATETIME2 (7)   DEFAULT GETDATE() NOT NULL,
-    [CreatedById]  INT             NOT NULL,
-    [DateModified] DATETIME2 (7)   NULL,
-    [ModifiedById] INT             NULL,
-    PRIMARY KEY CLUSTERED ([Id] ASC)
-);
-
-IF EXISTS (SELECT TOP 1 1 
-           FROM   [dbo].[Products])
-    BEGIN
-        SET IDENTITY_INSERT [dbo].[tmp_ms_xx_Products] ON;
-        INSERT INTO [dbo].[tmp_ms_xx_Products] ([Id], [Name], [Qty], [Price], [DateCreated], [CreatedById], [DateModified], [ModifiedById])
-        SELECT   [Id],
-                 [Name],
-                 [Qty],
-                 [Price],
-                 [DateCreated],
-                 [CreatedById],
-                 [DateModified],
-                 [ModifiedById]
-        FROM     [dbo].[Products]
-        ORDER BY [Id] ASC;
-        SET IDENTITY_INSERT [dbo].[tmp_ms_xx_Products] OFF;
-    END
-
-DROP TABLE [dbo].[Products];
-
-EXECUTE sp_rename N'[dbo].[tmp_ms_xx_Products]', N'Products';
-
-COMMIT TRANSACTION;
-
-SET TRANSACTION ISOLATION LEVEL READ COMMITTED;
-
-
-GO
-PRINT N'Refreshing Procedure [dbo].[spProducts_Inq]...';
-
-
-GO
-EXECUTE sp_refreshsqlmodule N'[dbo].[spProducts_Inq]';
-
-
+ALTER PROCEDURE [dbo].[spUserModuleAccess_GetByUserId]
+	@userId int = 0
+AS
+    SELECT 
+        uma.Id,
+        m.ModuleName,
+        m.ModuleCode,
+        uma.CanCreate,
+        uma.CanEdit,
+        uma.CanDelete,
+        uma.CanView
+    FROM 
+        UserModuleAccess uma
+    INNER JOIN 
+        Module m ON uma.ModuleId = m.Id
+    WHERE 
+        uma.UserId = @userId
+RETURN 0
 GO
 -- Insert initial seed data into Products table 
 IF NOT EXISTS (SELECT 1 FROM [dbo].[Products]) 
 BEGIN 
     PRINT 'Seeding initial Products...'; 
 
-    INSERT INTO [dbo].[Products] (Id, Name, Qty, Price, DateCreated, CreatedById) 
+    INSERT INTO [dbo].[Products] (Name, Qty, Price, DateCreated, CreatedById) 
     VALUES  
-    (1, 'Laptop', 10, 49999.99, GETDATE(), 1), 
-    (2, 'Monitor', 25, 8999.99, GETDATE(), 1), 
-    (3, 'Mouse', 100, 599.99, GETDATE(), 1), 
-    (4, 'Keyboard', 75, 999.99, GETDATE(), 1), 
-    (5, 'Webcam', 30, 2499.99, GETDATE(), 1); 
+    ('Laptop', 10, 49999.99, GETDATE(), 1), 
+    ('Monitor', 25, 8999.99, GETDATE(), 1), 
+    ('Mouse', 100, 599.99, GETDATE(), 1), 
+    ('Keyboard', 75, 999.99, GETDATE(), 1), 
+    ('Webcam', 30, 2499.99, GETDATE(), 1); 
 END
 ELSE
 BEGIN 
     PRINT 'Products table already seeded.'; 
+END
+
+IF NOT EXISTS (SELECT 1 FROM [dbo].[Module]) 
+BEGIN 
+    PRINT 'Seeding initial Modules...'; 
+
+    INSERT INTO [dbo].[Module] (ModuleName, ModuleCode) 
+    VALUES  
+    ('Sales', 'SALES'), 
+    ('Product', 'PRODUCT'), 
+    ('Product Adjustment', 'ADJUSTMENT'); 
+END
+ELSE
+BEGIN 
+    PRINT 'Modules table already seeded.'; 
 END
 GO
 

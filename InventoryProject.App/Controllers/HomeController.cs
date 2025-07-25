@@ -1,5 +1,7 @@
 using InventoryProject.App.Models;
+using InventoryProject.DataAccess.DataContextModels;
 using Microsoft.AspNetCore.Authorization;
+using InventoryProject.DataAccess.Persistence.Repositories.UserModuleAccessRepo;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -9,14 +11,22 @@ namespace InventoryProject.App.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private IUserModuleAccessRepository _userModuleAccessRepo;
 
-        public HomeController(ILogger<HomeController> logger)
+        protected int UserId => int.Parse(User.Identity.Name);
+
+        public HomeController(ILogger<HomeController> logger, IUserModuleAccessRepository userModuleAccessRepo)
         {
             _logger = logger;
+            _userModuleAccessRepo = userModuleAccessRepo;
         }
 
         public IActionResult Index()
         {
+            //var accessList = _userModuleAccessRepo.GetUserModuleAccess(UserId);
+
+            //ViewBag.UserAccess = accessList;
+
             return View();
         }
 

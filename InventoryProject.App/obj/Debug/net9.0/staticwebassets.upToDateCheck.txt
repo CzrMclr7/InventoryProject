@@ -70,8 +70,10 @@ C:\Users\Admin\source\repos\InventoryProject\InventoryProject.App\wwwroot\lib\bo
 C:\Users\Admin\source\repos\InventoryProject\InventoryProject.App\wwwroot\lib\jquery-validation\dist\additional-methods.min.js
 wwwroot\css\site.css
 wwwroot\favicon.ico
+wwwroot\Files\Images\CompanyLogo\default.png
 wwwroot\Files\Images\UserPics\Czar\Czar.jpg
-wwwroot\Files\Images\UserPics\Czar\Czar.png
+wwwroot\Files\Images\UserPics\PYRUS\PYRUS.png
+wwwroot\Files\Images\UserPics\TestAcc\TestAcc.png
 wwwroot\js\adjustment\productAdjustmentScript.js
 wwwroot\js\FileSetup\ChangePasswordScript.js
 wwwroot\js\products\productsScript.js

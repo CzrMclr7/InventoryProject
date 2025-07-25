@@ -1,6 +1,6 @@
 ﻿** Highlights
      Tables that will be recreated with data migrated
-       [dbo].[Products]
+       None
      Clustered indexes that will be dropped
        None
      Clustered indexes that will be created
@@ -9,11 +9,7 @@
        None
 
 ** User actions
-     Drop
-       unnamed constraint on [dbo].[Products] (Default Constraint)
-     Recreate table
-       [dbo].[Products] (Table)
+     Alter
+       [dbo].[spUserModuleAccess_GetByUserId] (Procedure)
 
 ** Supporting actions
-     Refresh
-       [dbo].[spProducts_Inq] (Procedure)

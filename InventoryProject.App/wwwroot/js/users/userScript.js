@@ -71,10 +71,16 @@ $(async function () {
             url: url,
             method: method,
             data: data,
+            //success: function (response) {
+            //    Swal.fire("Success!", "Account created successfully.", "success");
+            //    const loginTab = new bootstrap.Tab(document.querySelector('#login-tab'));
+            //    loginTab.show();
+            //},
             success: function (response) {
-                Swal.fire("Success!", "Account created successfully.", "success");
-                const loginTab = new bootstrap.Tab(document.querySelector('#login-tab'));
-                loginTab.show();
+                Swal.fire("Success!", "Account created successfully.", "success").then(() => {
+                    const loginTab = new bootstrap.Tab(document.querySelector('#login-tab'));
+                    loginTab.show();
+                });
             },
             error: function (xhr) {
                 let message = "Account creation failed.";

@@ -96,11 +96,9 @@ namespace InventoryProject.DataAccess.Persistence.Repositories.SalesRepo
                             Quantity = salesDetail.Quantity,
                         };
 
-                        await _productRepository.UpdateProductQty(detail.ProductId, detail.Quantity,productAdjustment.Action, oldQty, userId);
-
-                        //_context.ProductAdjustments.Add(productAdjustment);
-                        var prodAdjustment = await _adjustmentRepository.SaveNoRollBackAsync(productAdjustment, userId);
-                        prodAdjustmentToCompare.Add(prodAdjustment);
+                        await _productRepository.UpdateProductQty(detail.ProductId, detail.Quantity, productAdjustment.Action, oldQty, userId);
+                        await _adjustmentRepository.SaveNoRollBackAsync(productAdjustment, userId);
+                        
                     }
                 }
 
